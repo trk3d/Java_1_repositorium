@@ -27,12 +27,17 @@ public class Main {
                 System.out.println("Вы проиграли. Повезет в следующий раз!");
                 break;
             }
+            if (x == number) {
+                System.out.println("Вы только посмотрите на этого везунчика!");
+                break;
+            }
             System.out.println("Сыграем еще? 1 - да, другое - нет.");
             z = scanner.nextInt();
             if (z != 1) {
-                System.out.println("Игра окончена.");
+                System.out.println("Игра окончена. Спасибо за участие!");
                 break;
             }
         } while (x != number);
+        scanner.close();
     }
 }
