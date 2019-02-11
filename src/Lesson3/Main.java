@@ -14,7 +14,7 @@ public class Main {
         int number = 0, y = 3, z = 0;
         int x = random.nextInt(b);
         do {
-            System.out.println("Играем! Угадай число от " + a + " до " + b + "! Осталось попыток: " + y);
+            System.out.println("Добрый день! Играем! Угадай число от " + a + " до " + b + "! Осталось попыток: " + y);
             number = scanner.nextInt();
             if (x > number) {
                 System.out.println("Загаданное число больше! Попробуй еще раз.");
@@ -39,5 +39,6 @@ public class Main {
             }
         } while (x != number);
         scanner.close();
+
     }
 }
