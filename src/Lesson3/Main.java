@@ -7,38 +7,38 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int a = 0;
-        int b = 9;
+        int minNumber = 0;
+        int maxNumber = 9;
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        int number = 0, y = 3, z = 0;
-        int x = random.nextInt(b);
+        int number = 0, chances = 3, answer = 0;
+        int randomNumber = random.nextInt(maxNumber);
         do {
-            System.out.println("Добрый день! Играем! Угадай число от " + a + " до " + b + "! Осталось попыток: " + y);
+            System.out.println("Играем! Угадай число от " + minNumber + " до " + maxNumber + "! Осталось попыток: " + chances);
             number = scanner.nextInt();
-            if (x > number) {
+            if (randomNumber > number) {
                 System.out.println("Загаданное число больше! Попробуй еще раз.");
             }
-            if (x < number) {
+            if (randomNumber < number) {
                 System.out.println("Загаданное число меньше! Попробуй еще раз.");
             }
-            y--;
-            if (y == 0) {
+            chances--;
+            if ((chances == 0) && (randomNumber != number)) {
                 System.out.println("Вы проиграли. Повезет в следующий раз!");
-                break;
+                chances = 3;
             }
-            if (x == number) {
-                System.out.println("Вы только посмотрите на этого везунчика!");
-                break;
+            if (randomNumber == number) {
+                System.out.println("Угадал! Вы только посмотрите на этого везунчика!");
+                chances = 3;
             }
             System.out.println("Сыграем еще? 1 - да, другое - нет.");
-            z = scanner.nextInt();
-            if (z != 1) {
+            answer = scanner.nextInt();
+            if (answer != 1) {
                 System.out.println("Игра окончена. Спасибо за участие!");
                 break;
             }
-        } while (x != number);
-        scanner.close();
 
+        } while (answer == 1);
+        scanner.close();
     }
 }
