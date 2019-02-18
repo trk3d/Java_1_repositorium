@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
     public static char[][] map;
-    public static final int SIZE = 3;
+    public static final int SIZE = 5;
     public static final char DOT_EMPTY = ' ';
     public static final char DOT_X = 'X';
     public static final char DOT_O = 'O';
@@ -59,9 +59,9 @@ public class Main {
         System.out.println();
         for (int i = 0; i < SIZE; i++) {
             System.out.print((i + 1) + " ");
-        for (int j = 0; j < SIZE; j++) {
-            System.out.print((map[i][j]) + " ");
-        }
+            for (int j = 0; j < SIZE; j++) {
+                System.out.print((map[i][j]) + " ");
+            }
             System.out.println();
         }
         System.out.println();
@@ -85,6 +85,8 @@ public class Main {
         return false;
     }
 
+
+
     public static boolean isMapFull() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -96,7 +98,7 @@ public class Main {
 
 
     public static void aiTurn() {
-            int x;
+        int x;
         int y;
         do {
             x = random.nextInt(SIZE);
@@ -107,19 +109,23 @@ public class Main {
     }
 
 
-    public static boolean checkWin(char symb) {
-        if(map[0][0] == symb && map[0][1] == symb && map[0][2] == symb) return true;
-        if(map[1][0] == symb && map[1][1] == symb && map[1][2] == symb) return true;
-        if(map[2][0] == symb && map[2][1] == symb && map[2][2] == symb) return true;
-        if(map[0][0] == symb && map[1][0] == symb && map[2][0] == symb) return true;
-        if(map[0][1] == symb && map[1][1] == symb && map[2][1] == symb) return true;
-        if(map[0][2] == symb && map[1][2] == symb && map[2][2] == symb) return true;
-        if(map[0][0] == symb && map[1][1] == symb && map[2][2] == symb) return true;
-        if(map[2][0] == symb && map[1][1] == symb && map[0][2] == symb) return true;
-        return false;
+    public static boolean checkLine(int start_x, int start_y, int dx, int dy, char sign) {
+        for (int i = 0; i < SIZE; i++) {
+            if (map[start_x + i * dx][start_y + i * dy] != sign)
+                return false;
+        }
+        return true;
     }
 
-
+    public static boolean checkWin(char sign) {
+        for (int i = 0; i < SIZE; i++) {
+            if (checkLine(i, 0, 0, 1, sign)) return true;
+            if (checkLine(0, i, 1, 0, sign)) return true;
+        }
+        if (checkLine(0, 0, 1, 1, sign)) return true;
+        if (checkLine(0, SIZE - 1, 1, -1, sign)) return true;
+        return false;
+    }
 
 
 }
