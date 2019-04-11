@@ -11,17 +11,14 @@ public class Main {
         cat[3] = new Cat("Додик", 200, false);
         cat[4] = new Cat("Персик", 200, false);
 
-        Plate plate = new Plate(700);
+        Plate plate = new Plate(800);
         plate.PlateInfo();
-
-            cat[0].eat(plate);
-            cat[1].eat(plate);
-            cat[2].eat(plate);
-            cat[3].eat(plate);
-            cat[4].eat(plate);
-            plate.PlateInfo();
-
-
+        cat[0].eat(plate);
+        cat[1].eat(plate);
+        cat[2].eat(plate);
+        cat[3].eat(plate);
+        cat[4].eat(plate);
+        plate.PlateInfo();
 
 
 

@@ -13,15 +13,8 @@ public class Cat {
     }
 
     public void eat(Plate plate) {
-        if (plate.getFood() >= appetite) {
-            plate.decreaseFood(appetite);
-            Sitost = true;
-        } else if (plate.getFood() < appetite) {
-            plate.addFood(3000);
-            plate.decreaseFood(appetite);
-            Sitost = true;
-        }
-
+        plate.decreaseFood(appetite);
+        Sitost = true;
     }
 
     public String getName() {

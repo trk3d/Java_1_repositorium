@@ -17,12 +17,12 @@ public class Plate {
             System.out.println("Кот наелся, теперь он сытый");
         } else if (food < appetite) {
             System.out.println("Коту не хватило еды.");
-        }
+        } addFood(5000);
 
     }
 
     public void addFood (int food) {
-            this.food = 3000;
+            food += food;
         }
 
     public int getFood() {
